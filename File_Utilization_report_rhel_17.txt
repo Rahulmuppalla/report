@@ -1,0 +1,41 @@
+
+PLAY [Check Disk Space Usage] **************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [192.168.122.67]
+
+TASK [Disk usage from command module] ******************************************
+changed: [192.168.122.67]
+
+TASK [debug] *******************************************************************
+ok: [192.168.122.67] => {
+    "space": {
+        "changed": true,
+        "cmd": [
+            "df",
+            "-h"
+        ],
+        "delta": "0:00:00.004344",
+        "end": "2022-03-17 13:29:27.713951",
+        "failed": false,
+        "rc": 0,
+        "start": "2022-03-17 13:29:27.709607",
+        "stderr": "",
+        "stderr_lines": [],
+        "stdout": "Filesystem               Size  Used Avail Use% Mounted on\ndevtmpfs                 908M     0  908M   0% /dev\ntmpfs                    919M     0  919M   0% /dev/shm\ntmpfs                    919M  8.7M  911M   1% /run\ntmpfs                    919M     0  919M   0% /sys/fs/cgroup\n/dev/mapper/centos-root   17G  1.6G   16G  10% /\n/dev/vda1               1014M  193M  822M  20% /boot\ntmpfs                    184M     0  184M   0% /run/user/0",
+        "stdout_lines": [
+            "Filesystem               Size  Used Avail Use% Mounted on",
+            "devtmpfs                 908M     0  908M   0% /dev",
+            "tmpfs                    919M     0  919M   0% /dev/shm",
+            "tmpfs                    919M  8.7M  911M   1% /run",
+            "tmpfs                    919M     0  919M   0% /sys/fs/cgroup",
+            "/dev/mapper/centos-root   17G  1.6G   16G  10% /",
+            "/dev/vda1               1014M  193M  822M  20% /boot",
+            "tmpfs                    184M     0  184M   0% /run/user/0"
+        ]
+    }
+}
+
+PLAY RECAP *********************************************************************
+192.168.122.67             : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+
